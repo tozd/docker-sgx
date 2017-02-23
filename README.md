@@ -13,7 +13,7 @@ docker exec -t -i test-sgx bash
 SDK is installed under `/opt/intel/sgxsdk`. You should do:
 
 ```
-source /usr/local/sgxsdk/environment
+source /opt/intel/sgxsdk/environment
 ```
 
 in your bash script to load the SDK environment.
