@@ -1,0 +1,16 @@
+--- /tmp/linux-sgx/psw/ae/aesm_service/source/aesm/application/main.cpp.bak	2017-02-23 02:48:32.183551469 +0000
++++ /tmp/linux-sgx/psw/ae/aesm_service/source/aesm/application/main.cpp	2017-02-23 02:48:38.863496381 +0000
+@@ -74,13 +74,6 @@
+ }
+
+ int main() {
+-    if(daemon(0, 0) < 0)
+-    {
+-        AESM_LOG_INIT();
+-        AESM_LOG_FATAL("Fail to set daemon.");
+-        AESM_LOG_FINI();
+-        exit(1);
+-    }
+     CURLcode curl_code = curl_global_init(CURL_GLOBAL_DEFAULT);
+     if(curl_code!=CURLE_OK){
+         curl_initialized = false;

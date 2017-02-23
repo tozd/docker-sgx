@@ -1,0 +1,21 @@
+--- /tmp/linux-sgx/linux/installer/bin/install-sgx-psw.bin.tmpl.bak	2017-02-23 02:34:21.985183009 +0000
++++ /tmp/linux-sgx/linux/installer/bin/install-sgx-psw.bin.tmpl	2017-02-23 02:34:30.746358278 +0000
+@@ -30,18 +30,6 @@
+ #
+ #
+
+-modinfo isgx &> /dev/null
+-if [[ $? != "0" ]]; then
+-    lsmod | grep isgx &> /dev/null
+-    if [[ $? = "0" ]]; then
+-        echo "Warning: You did not follow the document to install the driver package"
+-        echo
+-    else
+-        echo "Please install the driver package before the PSW package"
+-        exit 4
+-    fi
+-fi
+-
+ set -e
+
+ PKG_NAME="Intel SGX PSW Package"

@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+exec chpst -u aesmd:aesmd /opt/intel/sgxpsw/aesm/aesm_service 2>&1
