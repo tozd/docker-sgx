@@ -20,5 +20,3 @@ RUN apt-get update -q -q && \
  /tmp/linux-sgx/linux/installer/bin/sgx_linux_x64_psw_*.bin
 
 COPY ./etc /etc
-
-# Do "source /usr/local/sgxsdk/environment" to load the SDK environemnt.
