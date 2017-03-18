@@ -17,6 +17,7 @@ RUN apt-get update -q -q && \
  mkdir -p /opt/intel && \
  cd /opt/intel && \
  yes yes | /tmp/linux-sgx/linux/installer/bin/sgx_linux_x64_sdk_*.bin && \
- /tmp/linux-sgx/linux/installer/bin/sgx_linux_x64_psw_*.bin
+ /tmp/linux-sgx/linux/installer/bin/sgx_linux_x64_psw_*.bin && \
+ rm -rf /tmp/linux-sgx
 
 COPY ./etc /etc
