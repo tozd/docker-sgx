@@ -1,9 +1,9 @@
-FROM tozd/runit:ubuntu-trusty
+FROM tozd/runit:ubuntu-xenial
 
 COPY ./patches /patches
 
 RUN apt-get update -q -q && \
- apt-get install wget python git patch build-essential ocaml automake autoconf libtool libcurl4-openssl-dev protobuf-compiler protobuf-c-compiler libprotobuf-dev libprotobuf-c0-dev --yes --force-yes && \
+ apt-get install wget python git patch build-essential ocaml automake autoconf libtool libssl-dev libcurl4-openssl-dev protobuf-compiler protobuf-c-compiler libprotobuf-dev libprotobuf-c0-dev --yes --force-yes && \
  cd /tmp && \
  git clone https://github.com/01org/linux-sgx.git && \
  cd / && \

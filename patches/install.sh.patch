@@ -1,0 +1,31 @@
+--- /tmp/linux-sgx/linux/installer/common/psw/install.sh.bak	2017-06-04 21:21:33.556516087 +0000
++++ /tmp/linux-sgx/linux/installer/common/psw/install.sh	2017-06-04 21:21:54.632910808 +0000
+@@ -90,7 +90,7 @@
+     chmod 0644 $AESMD_DEST
+     rm -f $AESMD_TEMP
+     rm -f $AESM_PATH/aesmd.service
+-    sudo /sbin/initctl reload-configuration
++    /sbin/initctl reload-configuration
+     retval=$?
+ else
+     echo " failed."
+@@ -115,7 +115,7 @@
+ fi
+ 
+ # Killing AESM service
+-sudo /usr/sbin/service aesmd stop
++/usr/sbin/service aesmd stop
+ $DISABLE_AESMD
+ # Removing AESM configuration files
+ rm -f $AESMD_DEST
+--- /tmp/linux-sgx/linux/installer/common/psw/install.sh.bak	2017-06-04 22:08:56.799742169 +0000
++++ /tmp/linux-sgx/linux/installer/common/psw/install.sh	2017-06-04 22:09:07.602361137 +0000
+@@ -149,7 +149,7 @@
+ if [ -d /run/systemd/system ]; then
+     systemctl start aesmd
+ elif [ -d /etc/init/ ]; then
+-    sudo /sbin/initctl start aesmd
++    /sbin/initctl start aesmd
+ fi
+ 
+ echo -e "\nuninstall.sh script generated in $PSW_DST_PATH\n"
