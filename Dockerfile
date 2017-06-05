@@ -3,7 +3,20 @@ FROM tozd/runit:ubuntu-xenial
 COPY ./patches /patches
 
 RUN apt-get update -q -q && \
- apt-get install wget python git patch build-essential ocaml automake autoconf libtool libssl-dev libcurl4-openssl-dev protobuf-compiler protobuf-c-compiler libprotobuf-dev libprotobuf-c0-dev --yes --force-yes && \
+ apt-get install wget python git patch build-essential ocaml automake autoconf libtool libssl-dev libcurl4-openssl-dev protobuf-compiler protobuf-c-compiler libprotobuf-dev libprotobuf-c0-dev alien uuid-dev libxml2-dev cmake pkg-config --yes --force-yes && \
+ mkdir -p /tmp/icls && \
+ cd /tmp/icls && \
+ wget http://registrationcenter-download.intel.com/akdlm/irc_nas/11414/iclsClient-1.45.449.12-1.x86_64.rpm && \
+ alien --scripts iclsClient-1.45.449.12-1.x86_64.rpm && \
+ dpkg -i iclsclient_1.45.449.12-2_amd64.deb && \
+ rm -rf /tmp/icls && \
+ cd /tmp && \
+ git clone https://github.com/01org/dynamic-application-loader-host-interface.git && \
+ cd /tmp/dynamic-application-loader-host-interface && \
+ cmake . && \
+ make && \
+ make install && \
+ rm -rf /tmp/dynamic-application-loader-host-interface && \
  cd /tmp && \
  git clone https://github.com/01org/linux-sgx.git && \
  cd / && \

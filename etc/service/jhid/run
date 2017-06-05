@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+exec /usr/sbin/jhid 2>&1
