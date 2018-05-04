@@ -34,5 +34,3 @@ RUN apt-get update -q -q && \
  rm -rf /tmp/linux-sgx
 
 COPY ./etc /etc
-
-ENV LD_LIBRARY_PATH=/opt/intel/sgxsdk/lib64
